@@ -46,6 +46,7 @@
 \newcommand{\Geq}{\geqslant}
 \newcommand{\Zero}{\mathbb{0}}
 
+\newtheorem{note}{Замечание}
 \newtheorem{proposition}{Предложение}
 \newtheorem{lemma}{Лемма}
 \newtheorem{oldtheorem}{Теорема}
@@ -426,21 +427,22 @@ $$\alpha = {\sum\limits_{s=1}^{e_*^{(1)} + e_L}}_{(F)}[p]_F^r(\varepsilon_s(\the
 \section{Функция Артина-Хассе}
 \paragraph{}
 
-Формальной группе $F(X,Y)$ соответствует логарифм $\lambda_F(X)=\Lambda_F(\Delta)(X)$, где $\Delta$ --- линейный оператор, действующий на переменную $X$ как возведение в степень $p$, а на коэффиценты, как автоморфизм Фробениуса в расширении $K/\Qp$: $\Delta(aX^b)=\sigma(a)X^{pb}$.
+Хорошо известно (например, \cite[\S 1.1]{book3}), что каждая формальная группа $F(X,Y)$ с логарифмом $\lambda_F(X)$ строго изоморфна некой $p$-типической, логарифм которой может быть представлен в виде $\lambda_p(X)=\Lambda_p(\Delta)(X)$, где $\Delta$ --- линейный оператор, действующий на переменную $X$ как возведение в степень $p$, а на коэффиценты, как автоморфизм Фробениуса в расширении $K/\Qp$: $\Delta(aX^b)=\sigma(a)X^{pb}$.
 
-Пусть $N$ --- подполе инерции в расширении $K/\Qp$, тогда $e_K=[K:N]$. Через $\ON$ обозначим кольцо целых подполя инерции, $\sigma$ обозначает определённое на $\OK$ отображение Фробениуса, а $W=\OK[[\Delta]]'$, как множество совпадающее с $\OK[[\Delta]]$ и удовлетворяющее соотношению $\Delta a = \sigma(a)\Delta$. 
+Обозначим как в работе \cite{book3} через $W=\OK[[\Delta]]'$ множество, совпадающее с формальными степенными рядами $\OK[[\Delta]]$ и удовлетворяющее соотношению $\Delta a = \sigma(a)\Delta$. 
 
-В работе \cite[Теорема 6.3.1]{book3} дана классификация формальных групп над локальным полем $K$ для случая, когда $e_K < p$. Мы воспользуемся частью этого утверждения для случая одномерной формальной группы.
-\begin{proposition}
-	Пусть $F$ --- формальная группа конечной высоты, соответствующая логарифму $\Lambda$. Тогда $F$ строго изоморфна $F_1$, соответствующей $\Lambda_1$, если и только если $\Lambda_1 = \Lambda\varepsilon + g$, где $\varepsilon \in 1 + W\Delta$, $g \in \pi\OK[\Delta]\Delta$.
-\end{proposition}
+В работе \cite[Теорема 6.3.1]{book3} дана явная классификация формальных групп над локальным полем $K$ для случая, когда $e_K < p$. В частности, применяя эту теорему к нашему случаю, получим, что логарифм $p$-типической формальной группы будет иметь вид $\lambda_p=\Lambda_p(\Delta)(X)$, где $\Lambda_p = vu^{-1}$ для некоторого $u\in W$, $u \equiv p \mod \Delta$, и некоторого $v \in \OK[\Delta]$, $v \equiv p \mod \pi\Delta$.\\
+
+\begin{note}
+	Логарифм $\lambda_p$ --- это обобщение логарифма Артина-Хассе $l(\Delta)(X)=X+{X^\Delta\over p}+{X^{\Delta^2}\over p^2}+\dots = \left(p \over {p-\Delta}\right)$, где $v(\Delta) = p$, $u(\Delta) = p-\Delta$. Поэтому функцией Артина-Хассе для $F$ будет ряд $E_F(X) = (\lambda_F^{-1}\circ\lambda_p)(X)$.
+\end{note}
 
 Ряд $E_F(X)=(\lambda_F^{-1}\circ\lambda_{p})(X)$ будет задавать строгий изоморфизм формальных групп над $\OK\ E_F: F_{p} \rightarrow F$.
-Рассмотрим функцию $E_F(\varphi):=(\Lambda_F^{-1}\circ\Lambda_{p})(\Delta)(\varphi)$, действующую из $\OL[|X|]$ в $F(\OL[|X|])$. Рассмотрим свойства этой функции.
+Рассмотрим действие функции $E_F(\varphi)$ из $\OL[|X|]$ в $F(\OL[|X|])$. Это будет гомоморфизм, более того, будут верны следующие свойства.
 
 \begin{proposition}\
 	
-	$E_F(\varphi)=(\Lambda_F^{-1}\circ\Lambda_{p})(\Delta)(\varphi):\OL[|X|]\rightarrow F(\OL[|X|])$, тогда
+	$E_F(\varphi)=(\lambda_F^{-1}\circ\lambda_{p})(\varphi):\OL[|X|]\rightarrow F(\OL[|X|])$, тогда
 	
 	\begin{enumerate}
 		\item $\forall\varphi,\psi\in\OL[|X|]\ E_F(\varphi+\psi)=E_F(\varphi)+_FE_F(\psi).$
@@ -450,21 +452,19 @@ $$\alpha = {\sum\limits_{s=1}^{e_*^{(1)} + e_L}}_{(F)}[p]_F^r(\varepsilon_s(\the
 	\end{enumerate}
 \end{proposition}
 \begin{proof}
-	$E_F$ задаёт изоморфизм формальных групп $F$ и $F_{p}$, то есть $E_F(F_{p}(X,Y))=F(E_F(X),E_F(X))\ $. $\Lambda_{p}(\Delta)$ --- линейный оператор, поэтому $\Lambda_{p}(\Delta)(\varphi+\psi)=\Lambda_{p}(\Delta)(\varphi)+\Lambda_{p}(\Delta)(\psi)$. Отсюда очевидно следует, что
-	$$E_F(\Delta)(\varphi+\psi)=\Lambda_F^{-1}\left(\Lambda_{p}(\Delta)(\varphi+\psi)\right)=\Lambda_F^{-1}\left(\Lambda_{p}(\Delta)(\varphi)+\Lambda_{p}(\Delta)(\psi)\right)=$$
-	$$=\Lambda_F^{-1}\left(\Lambda_F\circ\Lambda_F^{-1}\circ\Lambda_{p}(\Delta)(\varphi)+\Lambda_F\circ\Lambda_F^{-1}\circ\Lambda_{p}(\Delta)(\psi)\right)=\Lambda_F^{-1}\left(\Lambda_F(E_F(\varphi))+\Lambda_F(E_F(\psi))\right)=$$
-	$$=E_F(\varphi)+_FE_F(\psi).$$
+	$E_F$ задаёт изоморфизм формальных групп $F$ и $F_{p}$, то есть $E_F(F_{p}(X,Y))=F(E_F(X),E_F(X))\ $. $\Lambda_{p}(\Delta)$ --- линейный оператор, поэтому $\Lambda_{p}(\Delta)(\varphi+\psi)=\Lambda_{p}(\Delta)(\varphi)+\Lambda_{p}(\Delta)(\psi)$. Кроме того, по определению логарифма $\lambda_F(x)+\lambda_F(y)=\lambda_F(F(x,y))=\lambda_F(x +_F y)$. Отсюда следует, что
+	$$E_F(\varphi+\psi)=\lambda_F^{-1}(\lambda_p(\varphi+\psi))=\lambda_F^{-1}\left(\Lambda_{p}(\Delta)(\varphi+\psi)\right)=\lambda_F^{-1}\left(\Lambda_{p}(\Delta)(\varphi)+\Lambda_{p}(\Delta)(\psi)\right)=$$
+	$$=\lambda_F^{-1}\left(\lambda_F\circ\lambda_F^{-1}\circ\Lambda_{p}(\Delta)(\varphi)+\lambda_F\circ\lambda_F^{-1}\circ\Lambda_{p}(\Delta)(\psi)\right)=\lambda_F^{-1}\left(\lambda_F(E_F(\varphi))+\lambda_F(E_F(\psi))\right)=$$
+	$$=\lambda_F^{-1}\left(\lambda_F(E_F(\varphi) +_F E_F(\psi))\right)=E_F(\varphi)+_FE_F(\psi).$$
 	Свойство 1 доказано.
 	
 	Из свойства 1 по определению эндоморфизма $[p]_F$ сразу же вытекает свойство 2.
 	
-	Для доказательства свойства 3 рассмотрим $\sigma$ из группы Галуа $G$, тогда $X^\sigma=\varepsilon_\sigma X$, где $\varepsilon_\sigma\in\RL$. Следовательно, $\Delta(X^\sigma)=\Delta(\varepsilon_\sigma X)=\varepsilon_\sigma^p X^p$. С другой стороны, $(\Delta(X))^\sigma=(X^p)^\sigma=\varepsilon_\sigma^pX^p$. Отсюда следует, что $\Delta(X^\sigma)=(\Delta(X))^\sigma$ и 
-	$$E_F(X^\sigma)=(\Lambda_F^{-1}\circ\Lambda_{p})(\Delta)(X^\sigma)=(\Lambda_F^{-1}\circ\Lambda_{p})(\Delta)(X)^\sigma=(E_F(X))^\sigma.$$
+	Свойство 3 следует из того, что коэффициенты $\lambda_F(X)$ и $\lambda_p^{-1}$ неподвижны относительно $\sigma$ из группы Галуа $G$, тогда $X^\sigma=\varepsilon_\sigma X$, где $\varepsilon_\sigma\in\RL$. Следовательно, $\Delta(X^\sigma)=\Delta(\varepsilon_\sigma X)=\varepsilon_\sigma^p X^p$. С другой стороны, $(\Delta(X))^\sigma=(X^p)^\sigma=\varepsilon_\sigma^pX^p$. Отсюда следует, что $\Delta(X^\sigma)=(\Delta(X))^\sigma$ и $\lambda_p(X^\sigma) = \Lambda_p(\Delta(X^\sigma)) = \Lambda_p(\Delta(X))^\sigma = \lambda_p(X)^\sigma$. А так как коэффициенты $\lambda_F^{-1}$ неподвижны относительно действия $\sigma$ (!!!но это же не многочлен!!!!), то получим
+	$$E_F(X^\sigma)=\lambda_F^{-1}(\lambda_p(X^\sigma)) = \lambda_F^{-1}(\lambda_{p}(X)^\sigma) = (\lambda_F^{-1}(\lambda_{p}(X))^\sigma = (E_F(X))^\sigma.$$
 	
-	Так как $(\lambda_F^{-1}\circ\lambda_{p})(X)$ задаёт строгий изоморфизм формальных групп $F$ и $F_{p}$, то $(\Lambda_F^{-1}\circ\Lambda_{p})(\Delta)\equiv1\mod(\Delta)$, а значит выполнено свойство 4: $E_F(aX^m)\equiv aX^m\mod(X^{m+1})$.
+	Так как $(\lambda_F^{-1}\circ\lambda_{p})(X)$ задаёт строгий изоморфизм формальных групп $F$ и $F_{p}$, то выполнено свойство 4: $E_F(aX^m)\equiv aX^m\mod(X^{m+1})$.
 \end{proof}
-
-Полученная таким образом функция $E_F(X)$ является аналогом функции Артина-Хассе для нашего случая.
 
 
 \pagebreak 
